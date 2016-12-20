@@ -1,0 +1,24 @@
+{
+  "name": "angular-crowdtwist",
+  "description": "Components for crowdtwist coding test",
+  "main": "",
+  "authors": [
+    "luciano <luciano.diaz@directwines.com>"
+  ],
+  "directory": "./bower_components",
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "index.html",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular-mocks": "^1.5.3"
+  }
+}

@@ -1,0 +1,51 @@
+// ----- Libraries -----
+@import '../bower_components/bootstrap-sass/assets/stylesheets/bootstrap';
+
+
+// ----- Elements -----
+body {
+	background: #F1F1F1;
+	padding-top: 25px;
+}
+
+input {
+	margin-bottom: 10px;
+}
+
+// ----- Buttons -----
+.btn-full {
+	width: 100%;
+}
+
+// ----- Errors -----
+.error {
+    color: #bc4c4c;
+    margin-bottom: 10px;
+}
+
+// ----- Survey Form -----
+.new-survey {
+	border-radius: 5px;
+	padding: 20px 20px 30px;
+	background: #fff;
+	border: 1px solid #ccc;
+
+	h2 {
+		margin-top: 0;
+	}
+
+	.input-group {
+		margin-bottom: 10px;
+	}
+}
+
+.input-remove {
+    background: #D25656 none repeat scroll 0 0;
+    color: #fff;
+
+    &:hover {
+	background: #BF4E4E;
+	cursor: pointer;
+    }
+
+}

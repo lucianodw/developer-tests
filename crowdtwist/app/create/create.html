@@ -1,0 +1,86 @@
+<div class="new-survey col-xs-12 col-sm-6">
+	<h2>New Survey</h2>
+	
+				
+	<form name="surveyForm" novalidate class="survey-form"  ng-submit="submit()">
+		<div class="row">
+			<div class="col-sm-8 col-xs-12">
+				<label for="survey_title">Title</label>
+				<input type="text" name="title" class="form-control" ng-model="survey.title" required>	
+				<div class="error" ng-show="surveyForm.title.$invalid && surveyForm.$submitted">Please Enter a Title</div>
+			</div>
+			<div class="col-sm-4 col-xs-12">
+				<label for="survey_points">Points</label>
+				<input type="number" name="points" class="form-control" ng-model="survey.pointValue" required>	
+				<div class="error" ng-show="surveyForm.points.$invalid && surveyForm.$submitted">Enter Points</div>
+			</div>
+			<div class="col-sm-12 col-xs-12">
+				<label for="survey_description">Description</label>
+				<input type="text" name="description" class="form-control" ng-model="survey.description" required>
+				<div class="error" ng-show="surveyForm.description.$invalid && surveyForm.$submitted">Please Enter a Description</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<hr>
+			<div class="col-xs-12">
+				<label>Questions</label>
+				<div ng-repeat="question in survey.questions track by $index" >
+					<div class="input-group">
+						<input type="text" name="question{{$index}}" class="form-control" ng-model="question.title" placeholder="Insert Question {{index+1}} Here..." required>
+						<span class="input-group-addon input-remove" ng-click="removeQuestion($index)">
+						Remove</span>
+					</div>
+					<div class="error" ng-show="surveyForm.question{{$index}}.$invalid && surveyForm.$submitted">Please Add Question or Remove Empty Question</div>
+
+				</div>	
+				
+			</div>	
+
+			<div class="col-xs-12">
+				<a href class="btn btn-default btn-full" ng-click="newQuestion()">Add Question</a>
+			</div>	
+		</div>
+
+
+		<div class="row">
+			<hr>
+
+			<div class="col-xs-12">
+				 <input type="submit" class="btn btn-success btn-full" ng-show="!editFlag" value="Create Survey"/>
+				 <input type="submit" class="btn btn-info btn-full"  ng-show="editFlag" value="Update Survey"/>
+			</div>	
+		</div>
+	</form>
+</div>
+
+<div class="col-xs-12 col-sm-6">
+	<h2>All Surveys</h2>
+
+
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>Survey Title</th>
+				<th class="hidden-xs">Points</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="survey in surveyList">
+				<td>{{survey.title}}</td>
+				<td class="hidden-xs">{{survey.pointValue}}</td>
+				<td><a href class="btn btn-info btn-sm" ng-click="edit($index)">Edit</a></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<hr>
+
+<div class="col-xs-12" ng-show="jsonOutput">
+	<h2>JSON Output</h2>
+	<div>
+		{{jsonOutput | json}}
+	</div>
+</div>
